@@ -44,6 +44,7 @@ namespace LoginClase
             {
                 seleccion = "PayPal";
             }
+            MessageBox.Show("Has seleccionado " + conteo + " cursos y tu metodo de pago es " + seleccion);
         }
     }
 }

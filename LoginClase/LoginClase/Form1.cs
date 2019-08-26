@@ -27,6 +27,10 @@ namespace LoginClase
             if(txtUsuario.Text=="juancho" && txtPassword.Text=="123tamarindo")
             {
                 MessageBox.Show("Bienvenido Sr Don Juancho");
+                this.Hide();//Esconde ventana Login
+                Form2 CursosVentana = new Form2();
+                CursosVentana.Show();
+                this.Visible = false;
             }
             else
             {
@@ -39,6 +43,36 @@ namespace LoginClase
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((int)e.KeyChar==(int)Keys.Enter)
+            {
+                if (txtUsuario.Text == "juancho" && txtPassword.Text == "123tamarindo")
+                {
+                    MessageBox.Show("Bienvenido Sr Don Juancho");
+                    this.Hide();//Esconde ventana Login
+                    Form2 CursosVentana = new Form2();
+                    CursosVentana.Show();
+                    this.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña no valido");
+                    txtUsuario.Text = "";
+                    txtPassword.Text = "";
+                    txtUsuario.Focus();
+                }
+            }
+        }
+
+        private void TxtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                txtPassword.Focus();
+            }
         }
     }
 }
