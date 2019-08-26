@@ -9,36 +9,41 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LoginClase
-{
-    public partial class Form1 : Form
+{ 
+    public partial class Form2 : Form
     {
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            this.Close();//Cierra el formulario
+            this.Hide();
+            Form1 formulario = new Form1();
+            formulario.Visible = true;
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if(txtUsuario.Text=="juancho" && txtPassword.Text=="123tamarindo")
+            int conteo = 0;
+            string seleccion;
+            if(cbCS.Checked == true)
             {
-                MessageBox.Show("Bienvenido Sr Don Juancho");
+                conteo++;
+            }
+            if(cbB.Checked == true)
+            {
+                conteo++;
+            }
+            if(rbTarjeta.Checked == true)
+            {
+                seleccion = "Tarjeta de Credito";
             }
             else
             {
-                MessageBox.Show("Usuario o contraseña no valido");
-                txtUsuario.Text = "";
-                txtPassword.Text = "";
-                txtUsuario.Focus();
+                seleccion = "PayPal";
             }
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
